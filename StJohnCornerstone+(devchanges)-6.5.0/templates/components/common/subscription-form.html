@@ -1,0 +1,34 @@
+<!-- <h3 class="footer-info-heading">{{lang 'newsletter.subscribe'}}</h3>
+<p>{{lang 'newsletter.subscribe_intro'}}</p> -->
+
+<form class="form" action="{{urls.subscribe.action}}" method="post">
+    <fieldset class="form-fieldset">
+        <input type="hidden" name="action" value="subscribe">
+        <input type="hidden" name="nl_first_name" value="bc">
+        <input type="hidden" name="check" value="1">
+        <div class="form-field">
+            <label class="form-label is-srOnly" for="nl_email">{{lang 'common.email_address'}}</label>
+            <!--TODO? Nibir Add sja- preix to all class names, ie  form-input-custom becomes sja-form-input-custom-->
+            <div class="form-prefixPostfix wrap form-custom">
+                <input class="form-input form-input-custom"
+                       id="nl_email"
+                       name="nl_email"
+                       type="email"
+                       value="{{customer.email}}"
+                       placeholder="{{lang 'newsletter.email_placeholder'}}"
+                       aria-describedby="alertBox-message-text"
+                       aria-required="true"
+                       required
+                >
+                <!--TODO: Nibir Add value to en.json instead of hard coding--> 
+                <input class="button button--primary form-prefixPostfix-button--postfix form-button-custom"
+                       type="submit"
+                       value="Sign up for our email newsletter"
+                >
+            </div>
+            {{#if settings.show_newsletter_summary }}
+                <div class="footer-newsletter-summary">{{settings.newsletter_summary}}</div>
+            {{/if}}
+        </div>
+    </fieldset>
+</form>

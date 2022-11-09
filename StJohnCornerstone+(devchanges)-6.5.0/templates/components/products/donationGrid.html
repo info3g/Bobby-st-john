@@ -1,0 +1,10 @@
+
+<ul class="productGrid sja-donationGrid">
+    {{#each products}}
+    {{#contains this.sku ../donationType}}
+    <li class="product sja-donationProduct">
+        {{>components/products/donationCard settings=../settings hide_product_quick_view=../hide_product_quick_view show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event position=(add @index 1)}}
+    </li>
+    {{/contains}}
+    {{/each}}
+</ul>

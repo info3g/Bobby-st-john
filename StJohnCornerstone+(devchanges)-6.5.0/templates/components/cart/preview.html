@@ -1,0 +1,177 @@
+<div class="modal-header">
+    <h1 class="modal-header-title">
+        {{lang 'cart.added_to_cart.what_next' num_products=cart.quantity}}
+    </h1>
+</div>
+
+<div class="modal-body">
+    <div class="previewCart">
+        <section class="previewCartCheckout">
+
+            <div class="sja-cart-preview-donations">
+                <h3 class="sja-cart-preview-donations-title">Add a donation?</h3>
+                <div class="sja-cart-preview-donations-content" id="donationsDivForProductModal">
+                </div>
+            </div>
+
+            {{#if cart.show_primary_checkout_button}}
+            <a href="{{urls.checkout.single_address}}" class="button button--primary">
+                {{lang 'cart.added_to_cart.proceed_to_checkout'}}
+            </a>
+            {{/if}}
+
+            <div class="previewCartCheckout-additionalCheckoutButtons">
+                {{#each cart.additional_checkout_buttons}}
+                {{{this}}}
+                {{/each}}
+            </div>
+
+            {{#if cart.show_multiple_address_shipping}}
+            <div class="previewCartAction-checkoutMultiple">
+                <a href="{{urls.checkout.multiple_address}}">
+                    {{lang 'cart.preview.checkout_multiple'}}
+                </a>
+            </div>
+            {{/if}}
+
+            <div class="previewCartCheckout-subtotal">
+                {{lang 'cart.added_to_cart.order_subtotal'}}
+
+                <strong id="previewCartCheckout-price-text" class="previewCartCheckout-price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{cart.sub_total.formatted}}
+                    {{else}}
+                    {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </strong>
+            </div>
+
+            <p data-cart-quantity="{{cart.quantity}}">
+                {{lang 'cart.added_to_cart.your_cart_contains' num_products=cart.quantity}}
+            </p>
+
+            <a href="#" class="button button--primary ctn_btn" role="button" data-reveal-close>
+                {{lang 'cart.added_to_cart.continue_shopping'}}
+            </a>
+
+            <a href="{{urls.cart}}" class="button cart_go_btn">
+                {{lang 'cart.added_to_cart.view_or_edit_cart'}}
+            </a>
+        </section>
+        <section class="productView">
+            {{#with cart.added_item}}
+            <figure class="productView-image">
+                <div class="productView-img-container">
+                    {{> components/common/responsive-img
+                            image=image
+                            class="productView-image--cart"
+                            fallback_size=../theme_settings.product_size
+                            lazyload=../theme_settings.lazyload_mode
+                            default_image=../theme_settings.default_image_product
+                    }}
+                </div>
+            </figure>
+
+            <div class="productView-details">
+                <h2 class="productView-title">
+                    {{name}}
+                </h2>
+
+                <div class="productView-brand">
+                    {{brand.name}}
+                </div>
+
+                <div class="productView-price">
+                    {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                    {{quantity}} &times; {{price.formatted}}
+                    {{else}}
+                    {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </div>
+
+                {{#each options}}
+                <dl class="productView-info">
+                    <dt class="productView-info-name">
+                        {{name}}
+                    </dt>
+                    <dd class="productView-info-value">
+                        {{> components/common/product-options}}
+                    </dd>
+                </dl>
+                {{/each}}
+            </div>
+            {{/with}}
+        </section>
+    </div>
+
+    {{#if cart.suggested_products}}
+        <section class="suggestiveCart">
+            <h2>
+                {{lang 'cart.added_to_cart.you_might_also_like'}}&hellip;
+            </h2>
+
+            <ul class="productGrid">
+                {{#each cart.suggested_products}}
+                    <li class="product">
+                        {{> components/products/card settings=../settings hide_product_quick_view=true theme_settings=../theme_settings}}
+                    </li>
+                {{/each}}
+            </ul>
+        </section>
+    {{/if}}
+</div>
+
+<script>
+    function donationClick(a, b, c) {
+       
+        if (b.className != "sja-cart-preview-donations-button-clicked") {
+            b.className = "sja-cart-preview-donations-button-clicked";
+            document.getElementById("donation_label_" + a.entityId).className = "sja-cart-preview-donations-label-clicked";
+            document.getElementById("donation_container_" + a.entityId).className = "sja-cart-preview-donations-container-clicked";
+            
+            const formData = new FormData();
+
+            formData.append("action", "add");
+            formData.append("product_id", a.entityId);
+            formData.append("qty[]", 1);
+
+            window.stencilUtils.api.cart.itemAdd(formData, function (sikik) {
+                window.stencilUtils.api.cart.getCart({ includeOptions: true }, (err, response) => {
+                    document.getElementById("previewCartCheckout-price-text").textContent = response ? response.cartAmount : document.getElementById("previewCartCheckout-price-text").textContent;
+
+                });
+            });
+        }
+    }
+
+
+    for (i = 0; i < window.donationProducts.length; i++) {
+
+        console.log("donation product loop: ", window.donationProducts[i]);
+
+        let donationButton = document.createElement('button');
+        donationButton.id = 'donation_button_' + window.donationProducts[i].node.entityId;
+        donationButton.value = 'donationvalue_' + window.donationProducts[i].node.entityId;
+        donationButton.className = "sja-cart-preview-donations-button";
+
+        let donation = window.donationProducts[i].node;
+        donationButton.onclick = function () { donationClick(donation, donationButton); }; //"donationClick(" + window.donationProducts[i].node.name + ")";
+
+        let label = document.createElement('label')
+        label.htmlFor = 'donation_button_' + window.donationProducts[i].node.entityId;
+        label.id = 'donation_label_' + window.donationProducts[i].node.entityId;
+        label.className = "sja-cart-preview-donations-label";
+
+        var description = document.createTextNode(window.donationProducts[i].node.name);
+        label.appendChild(description);
+
+        let containerDiv = document.createElement('div');
+        containerDiv.className = "sja-cart-preview-donations-container";
+        containerDiv.id = "donation_container_" + window.donationProducts[i].node.entityId;
+        containerDiv.appendChild(donationButton);
+        containerDiv.appendChild(label);
+
+        var container = document.getElementById('donationsDivForProductModal');
+        container.appendChild(containerDiv);        
+    }
+</script>

@@ -1,0 +1,119 @@
+---
+products:
+    featured:
+        limit: 4
+---
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<div class="main_prod_imag {{#unless category.image }}no-image{{/unless}}">
+{{#if category.image}}
+    {{> components/common/responsive-img
+        image=category.image
+        fallback_size=theme_settings.zoom_size
+        lazyload=theme_settings.lazyload_mode
+        class="category-header-image"
+    }}
+{{/if}}
+<div class="st-john-product-description">
+    {{# if category.name '===' 'Products' }}
+         <h1 class="page-heading">First aid products</h1>
+    {{else}}
+        <h1 class="page-heading">{{category.name}}</h1>
+        {{{region name="category_below_header"}}}
+    {{/if}}
+{{{category.description}}}
+</div>
+</div>
+<div class="top-featured-products">
+
+<div class="page">
+    {{# if category.name '===' 'Products' }}
+         <h1 class="page-heading">Featured Products</h1>
+    {{else}}
+        <h1 class="page-heading">{{category.name}}</h1>
+        {{{region name="category_below_header"}}}
+    {{/if}}
+    <div class="page-content" id="sja-product-listing-container">
+        {{> components/products/grid products=products.featured show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+        {{{region name="category_below_content"}}}
+    </div>
+
+    <div class="page-content prod_cate_below" id="sja-product-listing-container">
+        <h1 class="page-heading">Categories</h1>
+        {{> components/products/grid hide_product_quick_view=true products=category.subcategories show_compare=false theme_settings=theme_settings event="list" }}
+        {{{region name="category_below_content"}}}
+    </div>
+</div>
+<div class="st-john-category-bottom third_last">
+    <div class="st-john-category-bottom-left">
+        <div>
+            <h3 class="st-john-bottom-h3">First Aid</h3>
+            <h1 class="st-john-bottom-h1">Kits Assembled by the experts.</h1>
+            <p class="st-john-bottom-p">With over 150 years of service to the community, St John’s first aid kits are assembeld with the knowledge of experienced first responders, medical professionals and seasoned volunteers.</p>
+            <div class="st-john-bottom-button-group">
+                <a href="/products/first-aid-kits/" class="st-john-bottom-button st-john-bottom-button1">Browse personal kits</a>
+                <a href="/products/workplace-first-aid-kits/" class="st-john-bottom-button st-john-bottom-button2">Browse workplace kits</a>
+            </div>
+        </div>
+    </div>
+    <div class="st-john-category-bottom-right">
+        <div>
+            <img src="https://i.shgcdn.com/3a75bf60-74c1-4062-af2a-dfc465a55dbb/-/format/auto/-/preview/3000x3000/-/quality/lighter/" alt="">
+        </div>
+    </div>
+</div>
+<div class="st-john-category-bottom second_last">
+        <div class="st-john-category-bottom-left">
+        <div>
+            <img src="https://cdn11.bigcommerce.com/s-hw9fq6q6i6/images/stencil/original/image-manager/image-1-.jpg" alt="">
+        </div>
+    </div>
+    <div class="st-john-category-bottom-right">
+        <div>
+            <h3 class="st-john-bottom-h3">For Businesses</h3>
+            <h1 class="st-john-bottom-h1">Onsite re-stocking service.</h1>
+            <p class="st-john-bottom-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+            <div class="st-john-bottom-button-group">
+                <a href="#" class="st-john-bottom-button st-john-bottom-button1">Schedule a visit</a>
+                <a href="/onsite-training" class="st-john-bottom-button st-john-bottom-button2">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="st-john-category-bottom last_section">
+    <div class="st-john-category-bottom-left">
+        <div>
+            <h3 class="st-john-bottom-h3">Defibrillators</h3>
+            <h1 class="st-john-bottom-h1">Which AED is right for your organistion?</h1>
+            <p class="st-john-bottom-p">Performing CPR and using an AED can increase the chances of survival 2x to 4x. Our defibrillator buyer’s guide will help you learn which is best for you.</p>
+            <div class="st-john-bottom-button-group">
+                <a href="/products/defibrillators/" class="st-john-bottom-button st-john-bottom-button1">Read the guide</a>
+            </div>
+        </div>
+    </div>
+        <div class="st-john-category-bottom-right">
+        <div>
+            <img src="https://cdn11.bigcommerce.com/s-hw9fq6q6i6/images/stencil/original/image-manager/image-2-.jpg" alt="">
+        </div>
+    </div>
+</div>
+</div>
+{{/partial}}
+{{> layout/base}}
+
+
+

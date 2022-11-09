@@ -1,0 +1,483 @@
+{{#if children}}
+<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+   href="{{url}}"
+   data-collapsible="navPages-{{id}}"
+>
+    {{name}}
+
+    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+        <svg><use xlink:href="#icon-chevron-down" /></svg>
+    </i>
+</a>
+
+
+
+<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+      {{# if name '===' 'First Aid Training'}}
+
+    <h2>All First Aid Training</h2>
+    <ul class="navPage-subMenu-list">
+            <li class="navPage-subMenu-item">
+                    <h3>
+                        Popular Courses
+                    </h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/provide-first-aid-1-day" aria-label="Provide First Aid">
+                                Provide First Aid
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/cpr" aria-label="CPR">
+                                CPR
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/occupational-first-aid" aria-label="Occupational First Aid">
+                                Occupational First Aid
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="navPage-subMenu-item">
+                    <h3>Categories</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-courses" aria-label="All courses">
+                                All courses
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-courses#first-aid-cpr" aria-label="First aid and CPR courses">
+                                First aid and CPR courses
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-courses#mental-health" aria-label="Mental health courses">
+                                Mental health courses
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-courses#specialised" aria-label="Specialised courses">
+                                Specialised courses
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-courses#occupational-first-aid" aria-label="Occupational first aid courses">
+                                Occupational first aid courses
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-courses#education-and-childcare" aria-label="Education and childcare courses">
+                                Education and childcare courses
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-courses#Electrical-remote-and-advanced" aria-label="Electrical, remote and advanced courses">
+                                Electrical, remote and advanced courses
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+			<li class="navPage-subMenu-item">
+                    <h3>
+                        More
+                    </h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/which-course-is-for-me" aria-label="Which course is right for me?">
+                                Which course is right for me?
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/venues-list" aria-label="Our Venues">
+                                Our Venues
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/why-train-with-us" aria-label="Why train with St John?">
+                                Why train with St John?
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/onsite-training" aria-label="Onsite training">
+                                Onsite training
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/training-faqs" aria-label="Training FAQs">
+                                Training FAQs
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+    </ul>  
+    {{else if name '===' 'Products' }}
+    <h2>All Products</h2>
+    <ul class="navPage-subMenu-list">
+            <li class="navPage-subMenu-item">
+                    <h3>Popular Categories</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/first-aid-kits/" aria-label="Personal first aid kits">
+                                Personal first aid kits
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/workplace-first-aid-kits/" aria-label="First aid kits for the workplace">
+                                First aid kits for the workplace
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/defibrillators/" aria-label="Defibrillators">
+                                Defibrillators
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="navPage-subMenu-item">
+                    <h3>Categories</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/" aria-label="All products">
+                                All products
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/first-aid-kits/" aria-label="First Aid Kits">
+                                First Aid Kits
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/defibrillators/" aria-label="Defibrillators">
+                                Defibrillators
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/workplace-first-aid-kits/" aria-label="Workplace First Aid Kits">
+                                Workplace First Aid Kits
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/categories/protective-equipment/" aria-label="Protective Equipment">
+                                Protective Equipment
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/defibrillator-accessories/" aria-label="Defibrillator Accessories">
+                                Defibrillator Accessories
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/first-aid-supplies-and-refills/" aria-label="First Aid Supplies and Refills">
+                                First Aid Supplies and Refills
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/dressings-and-bandages/" aria-label="Dressings and Bandages">
+                                Dressings and Bandages
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/first-aid-modules/" aria-label="First Aid Modules">
+                                First Aid Modules
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/products/first-aid-signage/" aria-label="First Aid Signage">
+                                First Aid Signage
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="navPage-subMenu-item">
+                    <h3>More</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="https://st-john-ambulance-australia-nsw.mybigcommerce.com/defibrillator-buying-guide" aria-label="Defibrillator buying guide">
+                                Defibrillator buying guide
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="#" aria-label="Compare first aid kits">
+                                Compare first aid kits
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/restocking" aria-label="Business restocking services">
+                                Business restocking services
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="#" aria-label="Is my workplace compliant?">
+                                Is my workplace compliant?
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/product-faqs" aria-label="Product FAQs">
+                                Product FAQs
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+    </ul>
+    {{else}}
+    {{/if}}
+    
+    
+
+</div>
+
+
+{{else}}
+
+<a class="navPages-action {{#if name '===' 'What we do' }}has-subMenu{{/if}} {{#if name '===' 'For Events and Business' }}has-subMenu{{/if}} {{#if name '===' 'Get Involved' }}has-subMenu{{/if}} {{#if is_active}} activePage{{/if}}"
+    href="{{url}}"
+    aria-label="{{name}}"
+    {{#if name '===' 'What we do' }} 
+    data-collapsible="navPages-1"
+    {{else if name '===' 'For Events and Business' }} 
+    data-collapsible="navPages-3"
+    {{else if name '===' 'Get Involved' }}	
+    data-collapsible="navPages-4"
+    {{/if}}
+>
+    {{#if name '===' 'Blog'}}
+        {{else}}
+        {{name}}
+        {{#if name '===' 'What we do' }} 
+		<i class="icon navPages-action-moreIcon" aria-hidden="true">
+        <svg><use xlink:href="#icon-chevron-down" /></svg>
+		</i>
+	{{else if name '===' 'For Events and Business' }} 
+			<i class="icon navPages-action-moreIcon" aria-hidden="true">
+        <svg><use xlink:href="#icon-chevron-down" /></svg>
+		</i>
+	{{else if name '===' 'Get Involved' }}	
+			<i class="icon navPages-action-moreIcon" aria-hidden="true">
+        <svg><use xlink:href="#icon-chevron-down" /></svg>
+		</i>
+    {{else}}
+    {{/if}}
+    {{/if}}
+</a>
+ {{#if name '===' 'What we do' }}
+    <div class="navPage-subMenu" id="navPages-1" aria-hidden="true" tabindex="-1">
+    <h2>What we do</h2>
+    <ul class="navPage-subMenu-list">
+            <li class="navPage-subMenu-item">
+                    <h3>Impact</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/impact" aria-label="Our impact">
+                                Our impact
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/our-story" aria-label="Our story">
+                                Our story
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="https://www.stjohnnsw2025.com.au/" aria-label="Our strategy">
+                                Our strategy
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/our-people" aria-label="Our people">
+                                Our people
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="navPage-subMenu-item">
+                    <h3>Community Programs</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-in-schools" aria-label="First Aid in Schools">
+                                First Aid in Schools
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/little-first-aiders" aria-label="Little First Aiders">
+                                Little First Aiders
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-at-events" aria-label="First Aid at Events">
+                                First Aid at Events
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-awareness" aria-label="First Aid Awareness">
+                                First Aid Awareness
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="navPage-subMenu-item">
+                    <h3>Donate</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/donate" aria-label="Donate">
+                                Donate
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="#" aria-label="Where your money goes">
+                                Where your money goes
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+    </ul>
+</div>
+
+{{else if name '===' 'For Events and Business'}}
+    <div class="navPage-subMenu" id="navPages-3" aria-hidden="true" tabindex="-1">
+    <h2>For Events and Business</h2>
+    <ul class="navPage-subMenu-list">
+            <li class="navPage-subMenu-item">
+                    <h3>Events</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/businesses-events-main-page" aria-label="Business and events">
+                                Business and events
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/first-aid-at-events" aria-label="First Aid at Events">
+                                First Aid at Events
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="#" aria-label="Enquire">
+                                Enquire
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="navPage-subMenu-item">
+                    <h3>Workplace Services</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/restocking" aria-label="Restocking service">
+                                Restocking service
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/event-volunteers" aria-label="Onsite Training">
+                                Onsite Training
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="#" aria-label="Workplace assessments and audits">
+                                Workplace assessments and audits
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/health-services" aria-label="Health Services">
+                                Health Services
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="navPage-subMenu-item">
+                    <h3>Accounts</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/apply-for-a-business-invoicing-account" aria-label="Apply for a business invoicing account">
+                               Apply for a business invoicing account
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+    </ul>
+</div>
+
+{{else if name '===' 'Get Involved'}}
+    <div class="navPage-subMenu" id="navPages-4" aria-hidden="true" tabindex="-1">
+    <h2>Get Involved</h2>
+    <ul class="navPage-subMenu-list">
+            <li class="navPage-subMenu-item">
+                    <h3>Donate</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/donate" aria-label="Donate">
+                                Donate
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="#" aria-label="Where your money goes">
+                                Where your money goes
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/bequest" aria-label="Bequest">
+                                Bequest
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="navPage-subMenu-item">
+                    <h3>Volunteer</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/ways-to-volunteer" aria-label="Ways to volunteer">
+                                Ways to volunteer
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/event-volunteers" aria-label="Over 18 (Rename to Event volunteers)">
+                                Over 18 (Rename to Event volunteers)
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/youth-and-cadets" aria-label="Youth and Cadets">
+                                Youth and Cadets
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/divisions" aria-label="Find your division">
+                                Find your division
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="https://app.betterimpact.com/Application?OrganizationGuid=9cecbd4d-0b2d-40c0-8ee4-d4b3f5834610&ApplicationFormNumber=1" aria-label="Apply to volunteer">
+                                Apply to volunteer
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="https://www.stjohnmembers.com.au/" aria-label="Volunteer login">
+                                Volunteer login
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="navPage-subMenu-item">
+                    <h3>Working at St John</h3>
+                    <ul class="navPage-childList is-open" aria-hidden="false">
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/our-culture" aria-label="Our culture">
+                               Our culture 
+                            </a>
+                        </li>
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="/work-at-st-john" aria-label="Work at St John">
+                                Work at St John
+                            </a>
+                        </li>
+						<li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="#" aria-label="Open roles">
+                                Open roles
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+    </ul>
+</div>
+{{else}}
+
+    {{/if}}
+
+{{/if}}

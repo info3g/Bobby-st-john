@@ -1,0 +1,78 @@
+<article class="card
+    {{#if alternate}} card--alternate{{/if}}"
+         data-test="card-{{id}}"
+         {{#if settings.data_tag_enabled}}
+         data-event-type="{{event}}"
+         data-entity-id="{{id}}"
+         data-position="{{position}}"
+         data-name="{{name}}"
+         data-product-category="
+        {{#each category}}
+            {{#if @last}}
+                {{this}}
+            {{else}}
+                {{this}},
+            {{/if}}
+        {{/each}}"
+         data-product-brand="{{brand.name}}"
+         data-product-price="
+        {{#or customer (unless theme_settings.restrict_to_login)}}
+            {{#if price.with_tax}}
+                {{price.with_tax.value}}
+            {{else}}
+                {{price.without_tax.value}}
+            {{/if}}
+        {{else}}
+            {{lang 'common.login_for_pricing'}}
+        {{/or}}"
+         {{/if}}>
+
+    <figure class="card-figure">
+
+        <a href="/cart.php?action=buy&product_id={{id}}"
+           class="card-figure__link"
+           aria-label="{{> components/products/product-info}}"
+           {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
+            <div class="card-img-container">
+                {{> components/common/responsive-img
+                    image=image
+                    class="card-image"
+                    fallback_size=theme_settings.productgallery_size
+                    lazyload=theme_settings.lazyload_mode
+                    default_image=theme_settings.default_image_product
+                }}
+            </div>
+        </a>
+
+        <figcaption class="card-figcaption">
+            <div class="card-figcaption-body">
+              
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                {{#if add_to_cart_url }}
+                    <a href="/cart.php?action=buy&product_id={{id}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button sja-donationAddToCartButton">{{lang 'products.donate_now'}}</a>
+                    <span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
+                {{/if}}
+                {{/or}}
+            </div>
+        </figcaption>
+    </figure>
+    <div class="card-body">
+        {{#if brand.name}}
+        <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
+        {{/if}}
+        <h3 class="card-title">
+            <a aria-label="{{> components/products/product-info}}"
+               href="/cart.php?action=buy&product_id={{id}}"
+               {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
+            </a>
+        </h3>
+
+        <div class="card-text sja-donation-price" data-test-info-type="price">
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            {{> components/products/price price=price}}
+            {{else}}
+            {{> components/common/login-for-pricing}}
+            {{/or}}
+        </div>
+    </div>
+</article>

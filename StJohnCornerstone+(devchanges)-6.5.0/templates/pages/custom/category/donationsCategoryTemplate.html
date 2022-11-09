@@ -1,0 +1,63 @@
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#if category.image}}
+    {{> components/common/responsive-img
+        image=category.image
+        fallback_size=theme_settings.zoom_size
+        lazyload=theme_settings.lazyload_mode
+        class="category-header-image"
+    }}
+{{/if}}
+{{#unless theme_settings.hide_category_page_heading }}
+    <h1 class="page-heading">{{category.name}}</h1>
+    {{{region name="category_below_header"}}}
+{{/unless}}
+{{{category.description}}}
+
+<div class="sja-donations">
+    <article class="productView-description sja-donations-tabs-article">
+        <ul class="tabs sja-donations-tabs" data-tab>
+            <li class="tab is-active sja-donations-tab">
+                <a class="tab-title" href="#tab-oneoff">One Off Donations</a>
+            </li>
+            <li class="tab sja-donations-tab">
+                <a class="tab-title" href="#tab-monthly">Monthly Donations</a>
+            </li>
+        </ul>
+        <div class="tabs-contents sja-donations-tabs-contents">
+            <div class="tab-content is-active sja-donations-tab-content" id="tab-oneoff">
+                <div class="page sja-donation-products-container">
+                    <div class="page-content sja-donation-products" id="product-listing-container">
+                        {{> components/products/donationGrid products=category.products donationType="oneoff" hide_product_quick_view=true show_compare=false theme_settings=theme_settings event="list" }}
+                        {{{region name="category_below_content"}}}
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="tab-monthly">
+                <div class="page sja-donation-products-container">
+                    <div class="page-content sja-donation-products" id="product-listing-container">
+                        {{> components/products/donationGrid products=category.products donationType="monthly" hide_product_quick_view=true show_compare=false theme_settings=theme_settings event="list" }}
+                        {{{region name="category_below_content"}}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </article>
+
+</div>
+
+{{/partial}}
+{{> layout/base}}
+
+

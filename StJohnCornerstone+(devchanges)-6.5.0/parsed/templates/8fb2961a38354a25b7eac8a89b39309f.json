@@ -1,0 +1,1 @@
+{"components/products/content-fields":"﻿{{#each product.custom_fields}}\r\n    {{#if name '===' 'content'}}\r\n        <dd class=\"productView-info-value sja-productView-info-value\">{{{value}}}</dd>\r\n    {{/if}}\r\n{{/each}}\r\n"}

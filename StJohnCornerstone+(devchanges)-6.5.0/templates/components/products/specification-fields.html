@@ -1,0 +1,10 @@
+﻿{{#each product.custom_fields}}
+    {{#if name '===' 'specification'}}
+        <dd style="font-weight:bold" class="productView-info-value sja-productView-spec-title">{{{value}}}</dd>
+        {{#each ../product.custom_fields}}
+            {{#if name '===' ../value}}
+                <dd class="productView-info-value sja-productView-spec-value">{{{value}}}</dd>
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
